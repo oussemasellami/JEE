@@ -1,0 +1,63 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/templates/temp.xhtml">
+	<ui:param name="page_name" value="Accueil" />
+	<ui:define name="content">
+			<h:panelGroup columns="2">
+			<h:form>
+				<h:dataTable value="#{trainingBean.training}" var="trainings"
+					border="1">
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="Label" />
+						</f:facet>
+						<h:outputText value="#{trainings.name}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="Description" />
+						</f:facet>
+						<h:outputText value="#{trainings.description}" />
+					</h:column>
+					
+						
+						
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="status" />
+						</f:facet>
+						<h:outputText value=" #{trainings.status == true ? 'Oui' : 'Non'}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="Participants" />
+						</f:facet>
+						<h:outputText value="#{trainings.numberMax}" />
+					</h:column>
+							
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="duree" />
+						</f:facet>
+						<h:outputText value="#{trainings.duree}" />
+					</h:column>
+				
+								<h:column>
+<f:facet name="header"><h:outputText value="Action" /></f:facet>
+<h:commandButton action="#{trainingBean.removeEmploye(trainings.id)}"
+value="Delete.3" />
+<h:commandButton id="btn" value="update training" action="#{trainingBean.displayTraining(trainings)}" />
+</h:column>		
+					
+					
+					
+					
+
+				</h:dataTable>
+			</h:form>
+		</h:panelGroup>
+
+	</ui:define>
+</ui:composition>

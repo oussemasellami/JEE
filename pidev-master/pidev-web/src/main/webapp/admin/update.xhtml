@@ -1,0 +1,47 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/template/template.xhtml">
+	<ui:param name="page_name" value="Accueil" />
+	<ui:define name="content">
+		
+				
+				<h:panelGroup columns="2">
+					<h:form>
+						<table>
+							<tr>
+								<td><h:outputText value="libelle"></h:outputText></td>
+								<td><h:inputText value="#{trainingBean.name}"></h:inputText></td>
+							</tr>
+							<tr>
+								<td><h:outputText value="description"></h:outputText></td>
+								<td><h:inputTextarea value="#{trainingBean.description}"></h:inputTextarea></td>
+							</tr>
+							<tr>
+								<td><h:outputText value="Number of participants"></h:outputText></td>
+								<td><h:inputText value="#{trainingBean.numberMax}"></h:inputText></td>
+							</tr>
+							<tr>
+								<td><h:outputText value="duree"></h:outputText></td>
+								<td><h:inputText value="#{trainingBean.duree}"></h:inputText></td>
+							</tr>
+							<tr><td><h:outputText value="available / unavailable"></h:outputText></td>
+<td><h:selectBooleanCheckbox value="#{trainingBean.status}"></h:selectBooleanCheckbox></td></tr>
+							
+							
+							<tr>
+								<td colspan="2">
+								 <h:commandButton
+										value="Update Training"
+										action="#{trainingBean.updateTraining()}" /></td>
+							</tr>
+
+
+
+						</table>
+						
+					</h:form>
+				</h:panelGroup>
+				</ui:define>
+</ui:composition>
